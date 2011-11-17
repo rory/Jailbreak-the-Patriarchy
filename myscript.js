@@ -709,6 +709,19 @@ var map = {
     "ACTRESSES" : "ACTORS"
 };
 
+function capitalise(string) {
+    return string.substring(0, 1).toUpperCase() + string.substring(1);
+}
+
+// 'map' excludes UPPERCASE & Capitalised words, so automatically figure out what those are
+for( old in map ) {
+    // replace all lowercase with UPPERCASE
+    map[old.toUpperCase()] = map[old].toUpperCase();
+    // ... and Capitalised
+    map[capitalise(old)] = capitalise(map[old]);
+}
+
+
 function genderswap(text){
     text = text.replace(searchFor, function(match) {
         var replacement;
