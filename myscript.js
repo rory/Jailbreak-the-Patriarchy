@@ -253,6 +253,13 @@ for( old in map ) {
     map[capitalise(old)] = capitalise(map[old]);
 }
 
+// If there's a swap a → b, then also add b → a
+for ( a in map ) {
+    b = map[a];
+    map[b] = a;
+}
+
+
 
 function genderswap(text){
     text = text.replace(searchFor, function(match) {
